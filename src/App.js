@@ -9,13 +9,13 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/host" element={<Host />} />
+          {/* <Route path="/host" element={<Host />} />
           <Route path="/client" element={<Client />} />
           <Route path="/quiz">
             <Route path="/theme" element={<Quiz />} />
             <Route path="/question" element="" />
             <Route path="/final_scores" element="" />
-          </Route>
+          </Route> */}
         </Routes>
       </header>
     </div>

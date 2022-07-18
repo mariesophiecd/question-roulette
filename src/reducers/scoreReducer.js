@@ -1,5 +1,4 @@
 const initState = [
-  ,
   { name: "playerA", score: 500 },
   { name: "playerB", score: 300 },
   { name: "playerC", score: 400 },
