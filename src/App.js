@@ -1,14 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home, Host, Client, Quiz } from './pages';
-import './App.css';
+
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/host' element={<Host/>} />
