@@ -1,5 +1,7 @@
-import './App.css';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Home, Host, Client, Quiz } from './pages';
+import './App.css';
 
 
 function App() {
@@ -11,7 +13,11 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/host' element={<Host/>} />
           <Route path='/client' element={<Client />} />
-          <Route path='/quiz' element={<Quiz />} />
+          <Route path='/quiz'>
+            <Route path='/theme' element={<Quiz />} />
+            <Route path='/question' element='' />
+            <Route path='/final_scores' element=''/>
+          </Route>
         </Routes>
       </header>
     </div>
