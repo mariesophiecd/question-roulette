@@ -1,6 +1,4 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -8,10 +6,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/host' element={<Host/>} />
-          <Route path='/client' element={<Client />} />
-          <Route path='/quiz' element={<Quiz />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/host" element={<Host />} />
+          <Route path="/client" element={<Client />} />
+          <Route path="/quiz" element={<Quiz />} />
         </Routes>
       </header>
     </div>
