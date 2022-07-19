@@ -7,9 +7,19 @@ import { Home} from './pages';
 
 
 function App() {
+
+  const sendMessage = () => {
+
+  };
+
+
+
   return (
     <div className="App">
       <Wheel />
+      <input placeholder="Message..." />
+      <button>Send Message</button>
+
       <header className="App-header">
         <Routes>
             
