@@ -26,7 +26,7 @@ export default function Leaderboard() {
     <>
       <h1>Top 5</h1>
 
-      <div>
+      <div className="p-5">
         <Bar
           data={chartData}
           options={{
