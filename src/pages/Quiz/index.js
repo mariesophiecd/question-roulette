@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { QuizCard, Timer } from "../../components/index";
+import Col from 'react-bootstrap/Col';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import axios from "axios";
+import './Quiz.css';
 
 function Quiz() {
   const [questions, setQuestions] = useState([
@@ -25,28 +29,35 @@ function Quiz() {
     }
     fetchData();
   }, []);
+
   return (
     <>
       {showScore ? (
         <h1>Score : {score}</h1>
       ) : (
-        <div>
-          <Timer
-            seconds={seconds}
-            setSeconds={setSeconds}
-            key={key}
-            setKey={setKey}
-          />
-          <QuizCard
-            questions={questions}
-            setSeconds={setSeconds}
-            setShowScore={setShowScore}
-            setScore={setScore}
-            score={score}
-            seconds={seconds}
-            setKey={setKey}
-          />
-        </div>
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <Timer
+                seconds={seconds}
+                setSeconds={setSeconds}
+                key={key}
+                setKey={setKey}
+              />
+            </Col>
+            <Col> 
+              <QuizCard
+                questions={questions}
+                setSeconds={setSeconds}
+                setShowScore={setShowScore}
+                setScore={setScore}
+                score={score}
+                seconds={seconds}
+                setKey={setKey}
+              />
+            </Col>   
+          </Row>
+        </Container>
       )}
     </>
   );

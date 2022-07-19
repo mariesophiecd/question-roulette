@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
+
 
 export default function QuizCard({
   questions,
@@ -12,7 +13,7 @@ export default function QuizCard({
   setScore,
   score,
   seconds,
-  setKey,
+  setKey
 }) {
   let options = [];
   //console.log("from card: ", questions[0]);
@@ -81,14 +82,16 @@ export default function QuizCard({
   return (
     <>
       <Container>
-        <Card style={{ width: "30rem" }}>
+        <Card className="border rounded-4" style={{ width: "30rem" }}>
           <Card.Body>
-            <Row>
+            <Row className="text-center">
               <Card.Title>Question {currentQuestion + 1}/5</Card.Title>
               <Card.Text>{questions[currentQuestion].question}</Card.Text>
               <Row>
                 {answers.map((answer) => (
-                  <button onClick={handleClick}>{answer}</button>
+                  <div>
+                    <Button className="answer-btn m-1 p-3" onClick={handleClick}>{answer}</Button>
+                  </div>                  
                 ))}
               </Row>
             </Row>

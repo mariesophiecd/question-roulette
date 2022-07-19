@@ -17,7 +17,7 @@ function App() {
     <Container className="App">
       <header className="App-header">   
         <div className='d-flex pointer w-25'>           
-          <img src={logo} alt="logo" onClick={() => navigate('/')}/>
+          <img src={logo} alt="logo" className="w-75" onClick={() => navigate('/')}/>
         </div> 
 
         <Routes>
