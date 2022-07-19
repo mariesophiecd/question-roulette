@@ -10,6 +10,7 @@ function Quiz() {
   const [end, setEnd] = useState(true);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,7 +31,12 @@ function Quiz() {
         <h1>Score : {score}</h1>
       ) : (
         <div>
-          <Timer seconds={seconds} setSeconds={setSeconds} />
+          <Timer
+            seconds={seconds}
+            setSeconds={setSeconds}
+            key={key}
+            setKey={setKey}
+          />
           <QuizCard
             questions={questions}
             setSeconds={setSeconds}
@@ -38,6 +44,7 @@ function Quiz() {
             setScore={setScore}
             score={score}
             seconds={seconds}
+            setKey={setKey}
           />
         </div>
       )}

@@ -12,12 +12,14 @@ export default function QuizCard({
   setScore,
   score,
   seconds,
+  setKey,
 }) {
   let options = [];
   //console.log("from card: ", questions[0]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [answers, setAnswers] = useState([]);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (answers.length < 4) {
@@ -56,6 +58,7 @@ export default function QuizCard({
       setCurrentQuestion(nextQuestion);
       setAnswers([]);
       reset();
+      setKey((prev) => prev + 1);
     } else {
       setShowScore(true);
     }
@@ -69,7 +72,6 @@ export default function QuizCard({
       if (currentQuestion + 1 < questions.length) {
         setCurrentQuestion(currentQuestion + 1);
         setAnswers([]);
-        reset();
       } else {
         setShowScore(true);
       }
@@ -82,7 +84,7 @@ export default function QuizCard({
         <Card style={{ width: "30rem" }}>
           <Card.Body>
             <Row>
-              <Card.Title>Question 1/4</Card.Title>
+              <Card.Title>Question {currentQuestion + 1}/5</Card.Title>
               <Card.Text>{questions[currentQuestion].question}</Card.Text>
               <Row>
                 {answers.map((answer) => (
