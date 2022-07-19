@@ -8,20 +8,20 @@ import Stack from 'react-bootstrap/Stack';
 
 
 function App() {
+
+  const sendMessage = () => {
+
+  };
+
+
+
   return (
     <Container className="App">
       <header className="App-header">         
         <img src={logo} className="d-flex justify-content-center" alt="logo" />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/host" element={<Host />} />
-          <Route path="/client" element={<Client />} />
-          <Route path="/quiz">
-            <Route path="/theme" element={<Quiz />} />
-            <Route path="/question" element="" />
-            <Route path="/final_scores" element="" />
-          </Route> */}
+            
         </Routes>
 
       </header>
@@ -30,3 +30,13 @@ function App() {
 }
 
 export default App;
+
+/* <Route path='/theme' element={<Quiz />} />
+            <Route path='/question' element='' />
+            <Route path='/final_scores' element=''/> */
+
+            /* <Route path='/' element={<Home />} />
+          <Route path='/host' element={<Host/>} />
+          <Route path='/client' element={<Client />} />
+          <Route path='/quiz' element={<Quiz />}> */
+          // </Routes>/</Route>
