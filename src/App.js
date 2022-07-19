@@ -22,8 +22,14 @@ function App() {
         </div> 
 
         <Routes>
-          <Route path='/' element={<Home />} />
-            
+          <Route path="/" element={<Home />} />
+          <Route path="/host" element={<Host />} />
+          <Route path="/client" element={<Client />} />
+          <Route path="/quiz">
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/quiz/question" element="" />
+            <Route path="/quiz/final_scores" element="" />
+          </Route>
         </Routes>
 
       </header>
