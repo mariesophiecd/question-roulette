@@ -10,7 +10,7 @@ import Stack from 'react-bootstrap/Stack';
 import './Home.css';
 
 export default function Home() {
-  //const scores = useSelector((state) => console.log(state));
+  // const scores = useSelector((state) => console.log(state));
   const navigate = useNavigate();
 
   return (
