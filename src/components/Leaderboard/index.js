@@ -10,7 +10,7 @@ export default function Leaderboard() {
     labels: scores.map((player) => player.name),
     datasets: [
       {
-        label: "Player names",
+        label: "",
         data: scores.map((player) => player.score),
         backgroundColor: [
           "#F5D06B",
@@ -24,9 +24,10 @@ export default function Leaderboard() {
   };
   return (
     <>
-      <h1>Top 5</h1>
-
-      <div>
+      <div className='d-flex justify-content-center pt-5'>
+      <h2 className="display-4">Top 5 Players</h2>
+      </div>
+      <div className="p-5">
         <Bar
           data={chartData}
           options={{

@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Spicy+Rice&display=swap');
 
+h1, h2 {
+  font-family: 'Spicy Rice', display;
+}
+
 .body {
   margin: 0;
-  font-family: Quicksand, sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
   background-color: #D9DEF9 ;
   z-index: 1;
+  color: #30343F;
 }
 
 .body::before{
@@ -31,4 +36,7 @@
 100% {-webkit-transform: rotate(360deg);}  
 }
 
+.pointer{
+  cursor: pointer;
+}
 

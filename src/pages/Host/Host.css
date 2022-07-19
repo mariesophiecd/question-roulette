@@ -1,0 +1,15 @@
+.easy-btn{
+    background-color: #F5D06B;
+    font-weight: 500;
+    border: none;
+}
+
+.medium-btn{
+    background-color: #F5B6E9;
+    border: none;
+}
+
+.hard-btn{
+    background-color: #F55657;
+    border: none;
+}

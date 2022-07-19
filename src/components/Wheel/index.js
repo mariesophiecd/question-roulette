@@ -66,11 +66,12 @@ const Wheel = () => {
         chooseOption();
     }
 
-    return(<>
-         <section>
-        <img className="gear" src={roulette} alt="gear" style={{ transform: `rotate(${rotation}deg`}}/>
-        <button onClick={Rotate} >Rotate</button>
-        </section>
+    return(
+        <>
+            <section>
+                <img className="gear" src={roulette} alt="gear" style={{ transform: `rotate(${rotation}deg`}}/>
+                <button onClick={Rotate} >Rotate</button>
+            </section>
         </>
     )   
 }
