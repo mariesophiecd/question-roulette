@@ -18,12 +18,16 @@ export default function Home() {
       <Container>
         <Row>
         <Stack className='d-flex justify-content-end' direction='horizontal'>
-          <Button variant='primary' size='lg' className='primary-btn p-3' onClick={() => {navigate('/host')}}>Start a game</Button>
-          <Button variant='outline-primary' size='lg' className='outline-primary-btn m-4 p-3' onClick={() => {navigate('/client')}}>Join a game</Button>
+          <Button variant='primary' size='lg' className='primary-btn p-3' onClick={() => {navigate('/host')}}>
+            Start a game
+          </Button>
+          <Button variant='outline-primary' size='lg' className='outline-primary-btn m-4 p-3' onClick={() => {navigate('/client')}}>
+            Join a game
+          </Button>
         </Stack>
         </Row>
-        <h1 className="d-flex justify-content-center">Welcome!</h1>
-        <h2 className="d-flex justify-content-center">Can you beat them?</h2>
+        <h1 className="d-flex justify-content-center display-1">Welcome!</h1>
+        <h2 className="d-flex justify-content-center display-2">Can you beat them?</h2>
       </Container>
       <Container className="w-50 my-5">
         <Card className="border rounded-3">

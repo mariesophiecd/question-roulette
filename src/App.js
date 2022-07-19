@@ -18,8 +18,8 @@ function App() {
   return (
     <Container className="App">
       <header className="App-header">   
-        <div className='d-flex'>           
-          <img src={logo} alt="logo" className="cursor-pointer" onClick={() => navigate('/')}/>
+        <div className='d-flex pointer w-25'>           
+          <img src={logo} alt="logo" onClick={() => navigate('/')}/>
         </div> 
 
         <Routes>
