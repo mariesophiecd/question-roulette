@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Leaderboard } from "../../components/index";
 import Button from "react-bootstrap/Button";
@@ -18,8 +18,8 @@ export default function Home() {
       <Container>
         <Row>
         <Stack className='d-flex justify-content-end' direction='horizontal'>
-          <Button variant='primary' size='lg' className='primary-btn p-3' onClick={() => {navigate('/client')}}>Start a game</Button>
-          <Button variant='outline-primary' size='lg' className='outline-primary-btn m-4 p-3'>Join a game</Button>
+          <Button variant='primary' size='lg' className='primary-btn p-3' onClick={() => {navigate('/host')}}>Start a game</Button>
+          <Button variant='outline-primary' size='lg' className='outline-primary-btn m-4 p-3' onClick={() => {navigate('/client')}}>Join a game</Button>
         </Stack>
         </Row>
         <h1 className="d-flex justify-content-center">Welcome!</h1>

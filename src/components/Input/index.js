@@ -22,7 +22,7 @@ export default function Input() {
         
         <>
             <Container className='w-50'>
-                <Form onSubmit={handleSubmit} className='d-flex justify-content-center flex-column'>
+                <Form onSubmit={handleSubmit} className='d-flex justify-content-center flex-column '>
                     <Form.Group className="mb-3" controlId="formInputText">
                         <Form.Control type="text" placeholder="Enter username" onChange={handleInput}/>
                     </Form.Group>

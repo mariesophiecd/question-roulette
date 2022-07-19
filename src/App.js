@@ -1,12 +1,13 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Home, Host, Client, Quiz } from './pages';
 import logo from './images/logo.png'
 import Container from 'react-bootstrap/Container';
 
 
 function App() {
+  const navigate = useNavigate();
 
   const sendMessage = () => {
 
@@ -18,7 +19,7 @@ function App() {
     <Container className="App">
       <header className="App-header">   
         <div className='d-flex'>           
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className="cursor-pointer" onClick={() => navigate('/')}/>
         </div> 
 
         <Routes>
