@@ -1,0 +1,18 @@
+.primary-btn{
+    background-color: #455BE2;
+    border: none;
+}
+
+.primary-btn:hover{
+    background-color: #7282e9;
+    /* border: none; */
+}
+
+.info-btn{
+    background-color: #77E0E7;
+    color: white;
+}
+
+.info-btn:hover{
+    background-color: #97e7ed;
+}

@@ -1,12 +1,18 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Home, Host, Client, Quiz } from "./pages";
+import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route } from 'react-router-dom';
+import { Home, Host, Client, Quiz } from './pages';
+import logo from './images/logo.png'
+import Container from 'react-bootstrap/Container';
+import Stack from 'react-bootstrap/Stack';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+    <Container className="App">
+      <header className="App-header">         
+        <img src={logo} className="d-flex justify-content-center" alt="logo" />
+
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/host" element={<Host />} />
@@ -17,8 +23,9 @@ function App() {
             <Route path="/final_scores" element="" />
           </Route> */}
         </Routes>
+
       </header>
-    </div>
+    </Container>
   );
 }
 
