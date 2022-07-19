@@ -13,9 +13,9 @@ export default function Home() {
     <>
       <Container>
         <Row>
-        <Stack direction='horizontal' gap={3}>
-          <Button variant='primary' size='lg' className='primary-btn m-5'>Start a game</Button>
-          <Button variant='info' size='lg' className='info-btn ms-auto m-5'>Join a game</Button>
+        <Stack className='d-flex justify-content-end' direction='horizontal'>
+          <Button variant='primary' size='lg' className='primary-btn p-3'>Start a game</Button>
+          <Button variant='outline-primary' size='lg' className='outline-primary-btn m-4 p-3'>Join a game</Button>
         </Stack>
         </Row>
         <h1 className="d-flex justify-content-center">Welcome!</h1>
