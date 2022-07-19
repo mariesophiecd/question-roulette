@@ -1,10 +1,6 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Wheel from './components/Wheel';
-import { Home} from './pages';
-
-
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home, Host, Client, Quiz } from "./pages";
 
 function App() {
 
