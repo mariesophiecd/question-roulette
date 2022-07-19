@@ -1,6 +1,11 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Home, Host, Client, Quiz } from "./pages";
+import React from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route } from 'react-router-dom';
+import { Home, Host, Client, Quiz } from './pages';
+import logo from './images/logo.png'
+import Container from 'react-bootstrap/Container';
+import Stack from 'react-bootstrap/Stack';
+
 
 function App() {
 
@@ -11,17 +16,16 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Wheel />
-      <input placeholder="Message..." />
-      <button>Send Message</button>
+    <Container className="App">
+      <header className="App-header">         
+        <img src={logo} className="d-flex justify-content-center" alt="logo" />
 
-      <header className="App-header">
         <Routes>
             
         </Routes>
+
       </header>
-    </div>
+    </Container>
   );
 }
 

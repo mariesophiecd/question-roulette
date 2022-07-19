@@ -13,19 +13,19 @@ export default function Leaderboard() {
         label: "Player names",
         data: scores.map((player) => player.score),
         backgroundColor: [
-          "#ffbb11",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
+          "#F5D06B",
+          "#77E0E7",
+          "#F55657",
+          "#F5B6E9",
+          "#455BE2",
         ],
       },
     ],
   };
   return (
     <>
-      <h1>Leaderboard: Top 10</h1>
-      <table>
+      <h1>Top 5</h1>
+      {/* <table>
         <tr>
           <th>Name</th>
           <th>Score</th>
@@ -36,7 +36,7 @@ export default function Leaderboard() {
             <td>{el.score}</td>
           </tr>
         ))}
-      </table>
+      </table> */}
 
       <div>
         <Bar
