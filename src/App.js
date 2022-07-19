@@ -23,6 +23,8 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/client' element={<Client />} />
+          <Route path='/host' element={<Host/>} />
             
         </Routes>
 
