@@ -25,18 +25,6 @@ export default function Leaderboard() {
   return (
     <>
       <h1>Top 5</h1>
-      {/* <table>
-        <tr>
-          <th>Name</th>
-          <th>Score</th>
-        </tr>
-        {scores.map((el, index) => (
-          <tr>
-            <td>{el.name}</td>
-            <td>{el.score}</td>
-          </tr>
-        ))}
-      </table> */}
 
       <div>
         <Bar

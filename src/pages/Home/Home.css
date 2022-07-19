@@ -1,18 +1,21 @@
 .primary-btn{
     background-color: #455BE2;
-    border: none;
+    border: 2px solid #455BE2;
 }
 
 .primary-btn:hover{
     background-color: #7282e9;
-    /* border: none; */
+    border: 2px solid #7282e9;
 }
 
-.info-btn{
-    background-color: #77E0E7;
-    color: white;
+.outline-primary-btn{
+    border: 2px solid #455BE2;
+    color:  #455BE2;
+    font-weight: 500;
 }
 
-.info-btn:hover{
-    background-color: #97e7ed;
+.outline-primary-btn:hover{
+    border: 2px solid #7282e9;
+    background: transparent;
+    color: #7282e9;
 }
