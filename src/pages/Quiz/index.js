@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { QuizCard, Timer, Wheel, Loading } from "../../components/index";
+import { QuizCard, Timer, Loading } from "../../components/index";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
 import "./Quiz.css";
+import Confetti from "react-confetti";
 
 function Quiz() {
   const [questions, setQuestions] = useState([
@@ -32,6 +33,19 @@ function Quiz() {
     fetchData();
   }, []);
 
+  function RenderConfetti() {
+    if (score > 3) {
+      return (
+        <>
+          <h1 className="text-center">Fantastic! You are really smart</h1>
+          <Confetti />
+        </>
+      );
+    } else {
+      return <h1 className="text-center">Better luck next time</h1>;
+    }
+  }
+
   return (
     <>
       {loading ? (
@@ -39,18 +53,21 @@ function Quiz() {
           <Loading setLoading={setLoading} />
         </Container>
       ) : showScore ? (
-        <Container className="d-flex justify-content-center vh-98 align-items-center">
-          <Card className="card-box border rounded-4 p-5">
-            <Card.Body>
-              <Row className="text-center">
-                <Card.Title className="display-3">Score</Card.Title>
-                <Card.Text className="card-text mb-3 display-3">
-                  {score}
-                </Card.Text>
-              </Row>
-            </Card.Body>
-          </Card>
-        </Container>
+        <>
+          <RenderConfetti />
+          <Container className="d-flex justify-content-center vh-98 align-items-center">
+            <Card className="card-box border rounded-4 p-5">
+              <Card.Body>
+                <Row className="text-center">
+                  <Card.Title className="display-3">Score</Card.Title>
+                  <Card.Text className="card-text mb-3 display-3">
+                    {score}/{questions.length}
+                  </Card.Text>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Container>
+        </>
       ) : (
         <Container>
           <Row className="d-flex justify-content-evenly vh-90 align-items-center">
