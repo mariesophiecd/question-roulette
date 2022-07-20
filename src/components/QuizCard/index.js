@@ -82,15 +82,17 @@ export default function QuizCard({
   return (
     <>
       <Container>
-        <Card className="border rounded-4" style={{ width: "30rem" }}>
+        <Card className="card-box border rounded-4 p-5">
           <Card.Body>
             <Row className="text-center">
-              <Card.Title>Question {currentQuestion + 1}/5</Card.Title>
-              <Card.Text>{questions[currentQuestion].question}</Card.Text>
+              <div className="mb-2">
+              <Card.Title className="card-title mb-3 fs-2">Question {currentQuestion + 1}/5</Card.Title>
+              </div>
+              <Card.Text className="card-text mb-3 fs-5">{questions[currentQuestion].question}</Card.Text>
               <Row>
                 {answers.map((answer) => (
-                  <div>
-                    <Button className="answer-btn m-1 p-3" onClick={handleClick}>{answer}</Button>
+                  <div className="text-center">
+                    <Button className="answer-btn m-1 p-3 w-100" onClick={handleClick}>{answer}</Button>
                   </div>                  
                 ))}
               </Row>
