@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { QuizCard, Timer } from "../../components/index";
+import { QuizCard, Timer, Loading } from "../../components/index";
 import Card from "react-bootstrap/Card";
-import Col from 'react-bootstrap/Col';
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
-import './Quiz.css';
+import "./Quiz.css";
+import Confetti from "react-confetti";
 
 function Quiz() {
   const [questions, setQuestions] = useState([
@@ -16,6 +17,7 @@ function Quiz() {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const [key, setKey] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -31,19 +33,41 @@ function Quiz() {
     fetchData();
   }, []);
 
+  function RenderConfetti() {
+    if (score > 3) {
+      return (
+        <>
+          <h1 className="text-center">Fantastic! You are really smart</h1>
+          <Confetti />
+        </>
+      );
+    } else {
+      return <h1 className="text-center">Better luck next time</h1>;
+    }
+  }
+
   return (
     <>
-      {showScore ? (
-        <Container className="d-flex justify-content-center vh-98 align-items-center">
-          <Card className="card-box border rounded-4 p-5">
-            <Card.Body>
-              <Row className="text-center">
-                <Card.Title className="display-3">Score</Card.Title>
-                <Card.Text className="card-text mb-3 display-3">{score}</Card.Text>
-              </Row>
-            </Card.Body>
-          </Card>
+      {loading ? (
+        <Container className="d-flex align-items-center justify-content-center flex-column">
+          <Loading setLoading={setLoading} />
         </Container>
+      ) : showScore ? (
+        <>
+          <RenderConfetti />
+          <Container className="d-flex justify-content-center vh-98 align-items-center">
+            <Card className="card-box border rounded-4 p-5">
+              <Card.Body>
+                <Row className="text-center">
+                  <Card.Title className="display-3">Score</Card.Title>
+                  <Card.Text className="card-text mb-3 display-3">
+                    {score}/{questions.length}
+                  </Card.Text>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Container>
+        </>
       ) : (
         <Container>
           <Row className="d-flex justify-content-evenly vh-90 align-items-center">
@@ -55,7 +79,7 @@ function Quiz() {
                 setKey={setKey}
               />
             </Col>
-            <Col> 
+            <Col>
               <QuizCard
                 questions={questions}
                 setSeconds={setSeconds}
@@ -65,7 +89,7 @@ function Quiz() {
                 seconds={seconds}
                 setKey={setKey}
               />
-            </Col>   
+            </Col>
           </Row>
         </Container>
       )}
