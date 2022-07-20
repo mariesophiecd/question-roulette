@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import roulette from "../../images/lucky-roulette.png";
+import React, {useEffect, useState} from 'react';
+import roulette from '../../images/lucky-roulette.png';
+import Container from 'react-bootstrap/Container';
 
 const Wheel = () => {
   let timer;
@@ -54,10 +55,22 @@ const Wheel = () => {
     Rotate();
   }, []);
 
+<<<<<<< HEAD
   function stop() {
     clearInterval(timer);
     chooseOption();
   }
+=======
+    return(
+        <>
+            <Container>
+                <img className="gear" src={roulette} alt="gear" style={{ transform: `rotate(${rotation}deg`}}/>
+                <button onClick={Rotate} >Rotate</button>
+            </Container>
+        </>
+    )   
+}
+>>>>>>> fa8cedd2e19932fd34cb7db2d286efe9e504e090
 
   return (
     <>

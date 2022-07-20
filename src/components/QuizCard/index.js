@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Stack from "react-bootstrap/Stack";
 
 export default function QuizCard({
   questions,
