@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { QuizCard, Timer } from "../../components/index";
+import Card from "react-bootstrap/Card";
 import Col from 'react-bootstrap/Col';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -33,11 +34,20 @@ function Quiz() {
   return (
     <>
       {showScore ? (
-        <h1>Score : {score}</h1>
+        <Container className="d-flex justify-content-center vh-98 align-items-center">
+          <Card className="card-box border rounded-4 p-5">
+            <Card.Body>
+              <Row className="text-center">
+                <Card.Title className="display-3">Score</Card.Title>
+                <Card.Text className="card-text mb-3 display-3">{score}</Card.Text>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Container>
       ) : (
         <Container>
-          <Row>
-            <Col className="d-flex justify-content-center">
+          <Row className="d-flex justify-content-evenly vh-90 align-items-center">
+            <Col className="d-flex justify-content-center align-items-center">
               <Timer
                 seconds={seconds}
                 setSeconds={setSeconds}
