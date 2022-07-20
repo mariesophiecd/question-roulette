@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Stack from "react-bootstrap/Stack";
 
-
 export default function QuizCard({
   questions,
   setSeconds,
@@ -13,7 +12,7 @@ export default function QuizCard({
   setScore,
   score,
   seconds,
-  setKey
+  setKey,
 }) {
   let options = [];
   //console.log("from card: ", questions[0]);
@@ -86,14 +85,25 @@ export default function QuizCard({
           <Card.Body>
             <Row className="text-center">
               <div className="mb-2">
-              <Card.Title className="card-title mb-3 fs-2">Question {currentQuestion + 1}/5</Card.Title>
+                <Card.Title className="card-title mb-3 fs-2">
+                  Question {currentQuestion + 1}/{questions.length}
+                </Card.Title>
               </div>
-              <Card.Text className="card-text mb-3 fs-5">{questions[currentQuestion].question}</Card.Text>
+              <Card.Text
+                className="card-text mb-3 fs-5"
+                dangerouslySetInnerHTML={{
+                  __html: questions[currentQuestion].question,
+                }}
+              ></Card.Text>
               <Row>
                 {answers.map((answer) => (
                   <div className="text-center">
-                    <Button className="answer-btn m-1 p-3 w-100" onClick={handleClick}>{answer}</Button>
-                  </div>                  
+                    <Button
+                      className="answer-btn m-1 p-3 w-100"
+                      onClick={handleClick}
+                      dangerouslySetInnerHTML={{ __html: answer }}
+                    ></Button>
+                  </div>
                 ))}
               </Row>
             </Row>
