@@ -55,6 +55,10 @@ const Wheel = () => {
     Rotate();
   }, []);
 
+  function stop() {
+    clearInterval(timer);
+    chooseOption();
+  }
   return (
     <>
       <Container>
