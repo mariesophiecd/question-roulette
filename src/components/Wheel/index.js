@@ -19,7 +19,7 @@ const Wheel = () => {
             actualRotation += (duration - sec) / maxTime;
             actualRotation = Math.round(actualRotation % 360);
             sec++;
-            console.log(360 - actualRotation);
+            //console.log(360 - actualRotation);
             setRotation(360 - actualRotation);
             if(sec >= duration){
 
@@ -55,16 +55,15 @@ const Wheel = () => {
             maxTime = Math.floor(Math.random() * 20) + 10;
         }
     }
-
-    useEffect(()=>{
-        Rotate();
-    }, []);
-
     
     function stop(){
         clearInterval(timer);
         chooseOption();
     }
+
+    useEffect(()=>{
+        Rotate();
+    }, []);
 
     return(
         <>
