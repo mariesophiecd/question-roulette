@@ -17,7 +17,7 @@ h1, h2 {
 
 .body::before{
     z-index: -1;
-    animation: spinX 175s linear infinite;
+    animation: spinX 135s linear infinite;
     content: '';
     background: url("./images/bg4.png") no-repeat center;
     background-attachment: fixed;
