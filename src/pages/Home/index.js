@@ -1,5 +1,4 @@
 import React from "react";
-// import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Leaderboard } from "../../components/index";
 import Button from "react-bootstrap/Button";
@@ -10,7 +9,7 @@ import Stack from 'react-bootstrap/Stack';
 import './Home.css';
 
 export default function Home() {
-  // const scores = useSelector((state) => console.log(state));
+
   const navigate = useNavigate();
 
   return (

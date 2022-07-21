@@ -1,7 +1,10 @@
-const userReducer = (state = false, action) => {
+const initState = '';
+
+const userReducer = (state = initState, action) => {
     switch(action.type){
         case 'SIGN_IN':
-            return !state;
+            const newUser = action.payload;
+            return [...state, newUser];
         default:
             return state;
     }
