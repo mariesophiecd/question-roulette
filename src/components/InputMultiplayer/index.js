@@ -5,8 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import io from 'socket.io-client'
 
-export default function Input() {
+const socket = io.connect("http://localhost:5001");
+
+
+export default function InputMultiplayer() {
     const [username, setUsername] = useState("")
     const [submitOptions, setSubmitOptions] = useState("");
     const [level, setLevel] = useState("");
@@ -24,7 +28,13 @@ export default function Input() {
     function handleSubmit(e){
         e.preventDefault()
         setSubmitOptions(username, level, theme)
-        navigate('/quiz', {state: {name: username, level: level, theme: theme} });
+        socket.emit("quiz_page", ({state: {name: username, level: level, theme: theme} }) );
+        socket.on('quiz_page_direction', (data) => {
+        navigate("/quiz", data);
+        })
+        console.log("Being Redirected");
+
+        // navigate('/quiz', {state: {name: username, level: level, theme: theme} });
         setUsername('')
     };
         

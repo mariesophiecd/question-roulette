@@ -88,7 +88,7 @@ export default function Client() {
 
   socket.on('quiz_page_direction', (data) => {
     console.log("Being Redirected");
-    navigate(data);
+    navigate("/quiz", data);
   })
 
   return (
@@ -123,10 +123,10 @@ export default function Client() {
       <div className='d-flex justify-content-center my-5'>
         <h1 className="display-1 mb-5">Join a Game !</h1>
       </div>
-      <Input />
+      {/* <Input />
       <div className='d-flex justify-content-center my-5'>
         <h2 className="display-4 mb-5">Join a room</h2>
-      </div>
+      </div> */}
     </>
   )
 }
