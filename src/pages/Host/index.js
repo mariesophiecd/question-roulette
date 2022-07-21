@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
+import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
 
 const socket = io.connect("http://localhost:5001");
@@ -18,6 +19,7 @@ export default function Host() {
   const [difficulty, setDifficulty] = useState('');
   const [searchSubject, setSubject] = useState('');
   
+  const navigate = useNavigate();
 
   const joinRoom = () => {
 
@@ -47,10 +49,6 @@ export default function Host() {
     setUsers(data);
   });
 
-  socket.on('quiz_page_direction', (data) => {
-    location.replace(data);
-  })
-
   const sendMessage = () => {
        socket.emit("send_message", { message, room });
   };
@@ -76,12 +74,20 @@ export default function Host() {
     return roomsAvailable.map(r => <tr><td>{r}</td></tr>)
   }
 
-  const RedirectToQuiz = () => {
+  const  RedirectToQuiz = () => {
     socket.emit("quiz_page");
+    socket.on('quiz_page_direction', (data) => {
+      navigate(data);
+    })
+    console.log("Being Redirected");
+    
   }
 
   return (
       <div>
+        <div> 
+          <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button>
+        </div>
         { button ? <div>
           <input placeholder="CREATE ROOM" onChange={(event) => {
             setRoom(event.target.value);
@@ -98,6 +104,9 @@ export default function Host() {
           }}/>
           <button onClick={changeUsername}> change username</button>
         </div>
+        <br></br>
+        
+        <br></br>
         <div> <h3> Available Rooms : </h3> {renderAllRooms()} </div>
 
         <input placeholder="Message..." onChange={(event) => {
@@ -106,6 +115,8 @@ export default function Host() {
         <button onClick={sendMessage}> Send Message </button>
         <h1> Message:</h1>
         {messageReceived}
+
+        
         <Input />
       </div>
   )

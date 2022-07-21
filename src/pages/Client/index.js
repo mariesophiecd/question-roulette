@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import Wheel from '../../components/Wheel';
+import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
 
 const socket = io.connect("http://localhost:5001");
@@ -19,8 +20,7 @@ export default function Client() {
   const [difficulty, setDifficulty] = useState('');
   const [searchSubject, setSubject] = useState('');
 
-  //to just emit the same event to all members of a room
-  // io.to('Room Name').emit('new event', 'Updates');
+  const navigate = useNavigate();
 
   const joinRoom = () => {
     if(!roomsAvailable.includes(room))
@@ -85,6 +85,11 @@ export default function Client() {
   const renderAllRooms = () => {
     return roomsAvailable.map(r => <tr><td>{r}</td></tr>)
   }
+
+  socket.on('quiz_page_direction', (data) => {
+    console.log("Being Redirected");
+    navigate(data);
+  })
 
   return (
       <div>
