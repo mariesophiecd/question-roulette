@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import "./Timer.css";
+import "./Loading.css";
 
-export default function Timer({ seconds, setSeconds, key, setKey }) {
-  //   useEffect(() => {
-  //     setInterval(() => {
-  //       setSeconds((seconds) => seconds - 1);
-  //     }, 1000);
-  //   }, []);
+export default function Loading({ setLoading }) {
   const children = ({ remainingTime }) => {
     const seconds = remainingTime % 60;
-    setSeconds(seconds);
-    return (
-      <div className="time">{seconds}</div>
-    )
+    return <div className="time">{seconds}</div>;
   };
   return (
     <>
+      <h1>Get Ready! Quiz is about to start</h1>
       <CountdownCircleTimer
-        key={key}
         isPlaying
         duration={10}
         size={220}
@@ -26,6 +18,7 @@ export default function Timer({ seconds, setSeconds, key, setKey }) {
         colorsTime={[10, 6, 3, 0]}
         onComplete={() => {
           // do your stuff here
+          setLoading(false);
           return { shouldRepeat: true }; // repeat animation in 1.5 seconds
         }}
       >
