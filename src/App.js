@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Home, Host, Client, Quiz, SinglePlayer } from "./pages";
 import logo from "./images/logo.png";
+// import logo3 from "./images/logo3.png";
 import Container from "react-bootstrap/Container";
 
 function App() {
@@ -13,13 +14,18 @@ function App() {
   return (
     <Container className="App">
       <header className="App-header">
-        <div className="d-flex pointer w-25">
+        <div className="d-flex logo-box pointer w-25">
           <img
             src={logo}
             alt="logo"
             className="w-75"
             onClick={() => navigate("/")}
           />
+          {/* <img 
+            src={logo3}
+            alt='animation-roulette'
+            className="animLogo"
+          /> */}
         </div>
 
         <Routes>

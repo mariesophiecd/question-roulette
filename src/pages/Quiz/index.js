@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import Confetti from "react-confetti";
+import { useDispatch } from "react-redux";
+import { addScore } from "../../actions";
+import { QuizCard, Timer, Loading, Leaderboard } from "../../components/index";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 import "./Quiz.css";
-import { QuizCard, Timer, Loading } from "../../components/index";
-import Confetti from "react-confetti";
 
 function Quiz() {
   const [questions, setQuestions] = useState([
@@ -17,10 +20,14 @@ function Quiz() {
   const [end, setEnd] = useState(true);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [key, setKey] = useState(0);  
+  const [key, setKey] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [points, setPoints] = useState(0);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const location = useLocation();
   console.log(location);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     async function fetchData(level, theme) {
       try {
@@ -47,12 +54,24 @@ function Quiz() {
       return <h1 className="text-center">Better luck next time</h1>;
     }
   }
-  function toPercent() {
-    const percent = (score / questions.length) * 100;
-    console.log("percentage: ", percent);
-    return percent;
+  if (showScore && end) {
+    console.log("Adding score");
+    let multiplier = 1;
+    if (location.state.level === "medium") {
+      multiplier = 2;
+    } else if (location.state.level === "hard") {
+      multiplier = 3;
+    }
+    let totalPoints = score * 200 + points;
+    totalPoints = totalPoints * multiplier;
+    setPoints(totalPoints);
+    dispatch(addScore(location.state.name, totalPoints));
+    setEnd(false);
   }
-
+  function handleLeaderboard(e) {
+    e.preventDefault();
+    setShowLeaderboard(!showLeaderboard);
+  }
   return (
     <>
       {loading ? (
@@ -60,21 +79,37 @@ function Quiz() {
           <Loading setLoading={setLoading} />
         </Container>
       ) : showScore ? (
-        <>
-          <RenderConfetti />
-          <Container className="d-flex justify-content-center vh-98 align-items-center">
-            <Card className="card-box border rounded-4 p-5">
-              <Card.Body>
-                <Row className="text-center">
-                  <Card.Title className="display-3">Score</Card.Title>
-                  <Card.Text className="card-text mb-3 display-3">
-                    {score}/{questions.length}
-                  </Card.Text>
-                </Row>
-              </Card.Body>
-            </Card>
-          </Container>
-        </>
+
+        showLeaderboard ? (
+          <>
+            <Button onClick={handleLeaderboard}>Close</Button>
+            <Leaderboard />
+          </>
+        ) : (
+          <>
+            <RenderConfetti />
+            <Button onClick={handleLeaderboard}>Leaderboard</Button>
+            <Container className="d-flex justify-content-center vh-98 align-items-center">
+              <Card className="card-box border rounded-4 p-5">
+                <Card.Body>
+                  <Row className="text-center">
+                    <Card.Title className="display-3">
+                      Correct Answers
+                    </Card.Title>
+                    <Card.Text className="card-text mb-3 display-4">
+                      {score}/{questions.length}
+                    </Card.Text>
+                    <Card.Title className="display-3">Points</Card.Title>
+                    <Card.Text className="card-text mb-3 display-4">
+                      {points}
+                    </Card.Text>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </Container>
+          </>
+        )
+
       ) : (
         <Container>
           <Row className="d-flex justify-content-evenly vh-90 align-items-center">
@@ -95,6 +130,7 @@ function Quiz() {
                 score={score}
                 seconds={seconds}
                 setKey={setKey}
+                setPoints={setPoints}
               />
             </Col>
           </Row>

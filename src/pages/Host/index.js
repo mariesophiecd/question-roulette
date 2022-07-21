@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import Input from '../../components/InputMultiplayer';
 import { useNavigate } from 'react-router-dom';
+import { InputMultiplayer } from '../../components';
 import io from 'socket.io-client'
 import Button from 'react-bootstrap/Button';
-import Stack from 'react-bootstrap/Stack';
+import Col from "react-bootstrap/Col";
 import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Row from "react-bootstrap/Row";
 import './Host.css';
-import { InputMultiplayer } from '../../components';
+
+
 const socket = io.connect("http://localhost:5001");
+
 export default function Host() {
 
   const [message, setMessage] = useState("");
@@ -84,20 +88,61 @@ export default function Host() {
   //   console.log("Being Redirected");
     
   // }
-
+ 
   return (
     <>
-      <div> 
-          {/* <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button> */}
-        </div>
-        { button ? <div>
-          <input placeholder="CREATE ROOM" onChange={(event) => {
-            setRoom(event.target.value);
-          }}/>
-          <button onClick={joinRoom}> Create Room </button>
-        </div> : <div><h3> CREATED ROOM: {room}</h3></div>}
-        
-        <div> 
+      <h1 className='display-1 text-center mb-4'>Create a game !</h1>
+     
+          <Container>
+            <Row>
+              { button ? 
+                <Col className='d-flex flex-column'>
+                  <Form className='d-flex justify-content-end'>
+                    <Form.Group className="mb-3 w-50" controlId="formCreateRoom">
+                      <Form.Control type="text" className="p-3" placeholder="Type a room number" onChange={(event) => { setRoom(event.target.value); }} />
+                      <Button className="primary-btn mt-3" onClick={joinRoom}>Create Room</Button>
+                    </Form.Group>                
+                  </Form>  
+                  <div className='d-flex justify-content-end'>
+                    <h3 className='fs-4'>Available Rooms: </h3> 
+                    {renderAllRooms()}
+                  </div>                
+                </Col>
+              : <Col>
+                  <h3 className='fs-4'>Created Room: {room}</h3>
+                </Col>}
+
+              <Col>
+                <Form>
+                  <Form.Group className="mb-3 w-50" controlId="formSendMessage">
+                    <Form.Control type="text" className="p-3" placeholder="Type a message" onChange={(event) => { setMessage(event.target.value); }} />
+                    <Button className="primary-btn p-2 my-3" onClick={sendMessage}>Send Message</Button>
+                    <h3 className='fs-4'>Message: </h3>
+                    {messageReceived}
+                  </Form.Group>
+                </Form>
+              </Col>
+            </Row>
+        </Container>
+
+        <Container className='pt-5'>
+          <InputMultiplayer />              
+        </Container>
+    </>
+  )
+}
+
+<div> 
+{/* <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button> */}
+</div>
+
+{/* 
+              <input placeholder="CREATE ROOM" onChange={(event) => {
+                setRoom(event.target.value);
+              }}/>
+              <Button className="primary-btn" onClick={joinRoom}>Create Room</Button> */}
+
+    {/* <div> 
           <h3>Users </h3> {users} 
           <h3>ALLPLAYERS </h3> {players.length}
           <br></br>
@@ -106,22 +151,18 @@ export default function Host() {
           }}/>
           <button onClick={changeUsername}> change username</button>
         </div>
-        <br></br>
-        
-        <br></br>
-        <div> <h3> Available Rooms : </h3> {renderAllRooms()} </div>
+        <br></br> */}
 
-        <input placeholder="Message..." onChange={(event) => {
+        
+        {/* <input placeholder="Message..." onChange={(event) => {
           setMessage(event.target.value);
         }}/>
         <button onClick={sendMessage}> Send Message </button>
         <h1> Message:</h1>
-        {messageReceived}
-      <h1 className='display-1 text-center mb-3'>Create a game !</h1>
-        <Container className='pt-5'>
-          <Input />              
-        </Container>
-    </>
-  )
-}
+        {messageReceived} */}
 
+        {/* 
+        <Container> 
+          <h3 className='fs-4'>Available Rooms: </h3> 
+          {renderAllRooms()} 
+        </Container> */}
