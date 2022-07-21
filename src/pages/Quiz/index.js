@@ -47,6 +47,11 @@ function Quiz() {
       return <h1 className="text-center">Better luck next time</h1>;
     }
   }
+  function toPercent() {
+    const percent = (score / questions.length) * 100;
+    console.log("percentage: ", percent);
+    return percent;
+  }
 
   return (
     <>
