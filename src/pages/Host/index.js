@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../../components/Input';
+import Container from 'react-bootstrap/Container';
 import './Host.css';
 
 export default function Host() {
