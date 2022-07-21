@@ -34,19 +34,26 @@ const Wheel = ({setTheme}) => {
         
     }
 
+        //red
+        //blue
+        //pink
+        //green
+        //yellow
+        //cyan
+
     function chooseOption(){
         if(actualRotation >= 0 && actualRotation < 61 ){
-            setTheme("RED");
+          setTheme(10);
         }else if(actualRotation >= 61 && actualRotation < 121){
-             setTheme("BLUE");
+          setTheme(18);
         }else if(actualRotation >= 121 && actualRotation < 181){
-             setTheme("PINK");
+          setTheme(21);
         }else if(actualRotation >= 181 && actualRotation < 241){
-             setTheme("GREEN");
+          setTheme(11);
         }else if(actualRotation >= 241 && actualRotation < 301){
-             setTheme("YELLOW");
+          setTheme(15);
         }else{
-             setTheme("CYAN");
+          setTheme(12);
         }
     }
   
@@ -67,7 +74,7 @@ const Wheel = ({setTheme}) => {
 
     return(
         <>
-            <Container className='d-flex justify-content-center flex-column mainbox'>
+            <Container className='d-flex justify-content-center flex-column mainbox m-5'>
               <Row className="d-flex justify-content-center">
                   <Button className="primary-btn w-25" onClick={Rotate}>Spin</Button>
               </Row>
