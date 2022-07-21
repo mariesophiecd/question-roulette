@@ -9,7 +9,8 @@ export default function Loading({ setLoading }) {
   };
   return (
     <>
-      <h1>Get Ready! Quiz is about to start</h1>
+      <h1 className='display-1 text-center mb-3'>Get Ready! Quiz is about to start</h1>
+      <h2 className='display-4 text-center mb-3'>The faster you answer, the more points you get !</h2>
       <CountdownCircleTimer
         isPlaying
         duration={10}
