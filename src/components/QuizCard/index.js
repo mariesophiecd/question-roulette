@@ -12,6 +12,7 @@ export default function QuizCard({
   score,
   seconds,
   setKey,
+  setPoints,
 }) {
   let options = [];
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -52,6 +53,9 @@ export default function QuizCard({
     console.log("User Answer", e.target.textContent);
     if (correctAnswer === e.target.textContent) {
       setScore(score + 1);
+      const point = seconds * 25;
+      console.log("question point", point);
+      setPoints((prev) => prev + point);
     }
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
@@ -67,7 +71,6 @@ export default function QuizCard({
   }
   useEffect(() => {
     if (seconds === 0) {
-      console.log("time up");
       if (currentQuestion + 1 < questions.length) {
         setCurrentQuestion(currentQuestion + 1);
         setAnswers([]);
