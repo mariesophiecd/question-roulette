@@ -45,6 +45,7 @@ export default function QuizCard({
 
   function handleClick(e) {
     e.preventDefault();
+    console.log("clicked second", seconds);
     const nextQuestion = currentQuestion + 1;
 
     console.log("correct Answer", correctAnswer);
@@ -75,7 +76,6 @@ export default function QuizCard({
       }
     }
   }, [seconds]);
-
   return (
     <>
       <Container>

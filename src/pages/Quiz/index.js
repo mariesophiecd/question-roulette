@@ -20,19 +20,19 @@ function Quiz() {
   const [key, setKey] = useState(0);  
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-
+  console.log(location);
   useEffect(() => {
-    async function fetchData(level) {
+    async function fetchData(level, theme) {
       try {
         const result = await axios.get(
-          `https://opentdb.com/api.php?amount=5&category=18&difficulty=${level}&type=multiple`
+          `https://opentdb.com/api.php?amount=5&category=${theme}&difficulty=${level}&type=multiple`
         );
         setQuestions(result.data.results);
       } catch (err) {
         console.error(err);
       }
     }
-    fetchData(location.state.level);
+    fetchData(location.state.level, location.state.theme);
   }, []);
 
   function RenderConfetti() {
@@ -46,6 +46,11 @@ function Quiz() {
     } else {
       return <h1 className="text-center">Better luck next time</h1>;
     }
+  }
+  function toPercent() {
+    const percent = (score / questions.length) * 100;
+    console.log("percentage: ", percent);
+    return percent;
   }
 
   return (

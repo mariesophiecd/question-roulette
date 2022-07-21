@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Input from '../../components/Input';
+import Input from '../../components/InputMultiplayer';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import './Host.css';
+import { InputMultiplayer } from '../../components';
 const socket = io.connect("http://localhost:5001");
 export default function Host() {
 
@@ -75,19 +76,19 @@ export default function Host() {
     return roomsAvailable.map(r => <tr><td>{r}</td></tr>)
   }
 
-  const  RedirectToQuiz = () => {
-    socket.emit("quiz_page");
-    socket.on('quiz_page_direction', (data) => {
-      navigate(data);
-    })
-    console.log("Being Redirected");
+  // const  RedirectToQuiz = ( ) => {
+  //   socket.emit("quiz_page", ({state: {name: username, level: level, theme: theme} }) );
+  //   socket.on('quiz_page_direction', (data) => {
+  //     navigate("/quiz", data);
+  //   })
+  //   console.log("Being Redirected");
     
-  }
+  // }
 
   return (
     <>
       <div> 
-          <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button>
+          {/* <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button> */}
         </div>
         { button ? <div>
           <input placeholder="CREATE ROOM" onChange={(event) => {

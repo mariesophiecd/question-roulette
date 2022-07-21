@@ -15,32 +15,35 @@ export default function Home() {
 
   return (
     <>  
-      <Container>
-        <Row>
-          <Col>
-          <Button variant='primary' size='lg' className='primary-btn p-3' onClick={() => {navigate('/singleplayer')}}>
-                Start to play
-          </Button>
+      <Container className="m-5 pb-5">
+        <Row className="w-100 mb-5">
+          <Col className="d-flex flex-column">
+            <h2 className="text-center mb-3">Solo mode</h2>
+              <div className="d-flex flex-row justify-content-center">   
+                <Button variant='primary' size='lg' className='primary-btn px-4 py-3' onClick={() => {navigate('/singleplayer')}}>
+                    Start to play
+                </Button>
+              </div>
           </Col>
-          <Col>
-            <Stack className='d-flex justify-content-end' direction='horizontal'>
-              <Button variant='primary' size='lg' className='primary-btn p-3' onClick={() => {navigate('/host')}}>
-                Start a game
-              </Button>
-              <Button variant='outline-primary' size='lg' className='outline-primary-btn m-4 p-3' onClick={() => {navigate('/client')}}>
-                Join a game
-              </Button>
-            </Stack>
+          <Col className="me-5">
+            <h2 className="text-center mb-3">Play with friends</h2>
+              <div className="d-flex flex-row justify-content-center">             
+                <Button variant='primary' size='lg' className='primary-btn p-3 me-1' onClick={() => {navigate('/host')}}>
+                  Create a game
+                </Button>
+                <Button variant='outline-primary' size='lg' className='outline-primary-btn p-3' onClick={() => {navigate('/client')}}>
+                  Join a game
+                </Button>
+              </div> 
           </Col>
         </Row>
       </Container>
 
       <Container>
-        <h1 className="d-flex justify-content-center display-1">Welcome!</h1>
-        <h2 className="d-flex justify-content-center display-4">Will you beat them?</h2>
+        <h1 className="d-flex justify-content-center display-4 my-5">Will you beat them?</h1>
       </Container>
      
-      <Container className="w-50 my-5">
+      <Container className="w-50 my-5 pb-5">
         <Card className="border rounded-4">
           <Leaderboard />
         </Card>
