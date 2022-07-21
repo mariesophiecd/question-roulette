@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
+import Confetti from "react-confetti";
 import axios from "axios";
+import { QuizCard, Timer, Loading } from "../../components/index";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import "./Quiz.css";
-import { QuizCard, Timer, Loading } from "../../components/index";
-import Confetti from "react-confetti";
 
 function Quiz() {
   const [questions, setQuestions] = useState([
@@ -67,7 +67,7 @@ function Quiz() {
               <Card.Body>
                 <Row className="text-center">
                   <Card.Title className="display-3">Score</Card.Title>
-                  <Card.Text className="card-text mb-3 display-3">
+                  <Card.Text className="card-text mb-3 display-4">
                     {score}/{questions.length}
                   </Card.Text>
                 </Row>
