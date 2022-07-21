@@ -12,12 +12,7 @@ const Wheel = ({setTheme}) => {
     let maxTime = 0;
     let actualRotation = 0;
 
-  const [rotation, setRotation] = useState(0);
-
-  function Rotate() {
-    let sec = 0;
-    randomNumber("duration");
-    randomNumber("maxTime");
+    const [rotation, setRotation] = useState(0);
 
     function Rotate(){
         let sec = 0;
@@ -54,20 +49,20 @@ const Wheel = ({setTheme}) => {
              setTheme("CYAN");
         }
     }
-  }
+  
 
-  function randomNumber(target) {
-    if (target === "duration") {
-      duration = Math.floor(Math.random() * 300) + 200;
-    } else {
-      maxTime = Math.floor(Math.random() * 20) + 10;
+    function randomNumber(target) {
+      if (target === "duration") {
+        duration = Math.floor(Math.random() * 300) + 200;
+      } else {
+        maxTime = Math.floor(Math.random() * 20) + 10;
+      }
     }
-  }
 
     
     function stop(){
-        clearInterval(timer);
-        chooseOption();
+      clearInterval(timer);
+      chooseOption();
     }
 
     return(
@@ -82,20 +77,5 @@ const Wheel = ({setTheme}) => {
     )   
 }
 
-
-  return (
-    <>
-      <section>
-        <img
-          className="gear"
-          src={roulette}
-          alt="gear"
-          style={{ transform: `rotate(${rotation}deg` }}
-        />
-        <button onClick={Rotate}>Rotate</button>
-      </section>
-    </>
-  );
-};
 
 export default Wheel;

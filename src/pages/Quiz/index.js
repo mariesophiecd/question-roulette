@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-
 import { useLocation } from 'react-router-dom';
-import { QuizCard, Timer } from "../../components/index";
-
+import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import axios from "axios";
 import "./Quiz.css";
+import { QuizCard, Timer, Loading } from "../../components/index";
 import Confetti from "react-confetti";
 
 function Quiz() {
