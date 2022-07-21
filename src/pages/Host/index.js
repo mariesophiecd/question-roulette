@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
-
-const socket = io.connect("http://localhost:5001");
-
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
+import Container from 'react-bootstrap/Container';
 import './Host.css';
-
+const socket = io.connect("http://localhost:5001");
 export default function Host() {
 
   const [message, setMessage] = useState("");
