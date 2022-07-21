@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import roulette from '../../images/lucky-roulette.png';
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Row from "react-bootstrap/Row";
+import './Wheel.css';
 
-const Wheel = () => {
+
+const Wheel = ({setTheme}) => {
     let timer;
     let duration = 0;
     let maxTime = 0;
@@ -20,7 +24,6 @@ const Wheel = () => {
             actualRotation += (duration - sec) / maxTime;
             actualRotation = Math.round(actualRotation % 360);
             sec++;
-            console.log(360 - actualRotation);
             setRotation(360 - actualRotation);
             if(sec >= duration){
 
@@ -34,17 +37,17 @@ const Wheel = () => {
 
     function chooseOption(){
         if(actualRotation >= 0 && actualRotation < 61 ){
-            console.log("RED");
+            setTheme("RED");
         }else if(actualRotation >= 61 && actualRotation < 121){
-            console.log("BLUE");
+             setTheme("BLUE");
         }else if(actualRotation >= 121 && actualRotation < 181){
-            console.log("PINK");
+             setTheme("PINK");
         }else if(actualRotation >= 181 && actualRotation < 241){
-            console.log("GREEN");
+             setTheme("GREEN");
         }else if(actualRotation >= 241 && actualRotation < 301){
-            console.log("YELLOW");
+             setTheme("YELLOW");
         }else{
-            console.log("CYAN");
+             setTheme("CYAN");
         }
        
     }
@@ -57,10 +60,6 @@ const Wheel = () => {
         }
     }
 
-    useEffect(()=>{
-        Rotate();
-    }, []);
-
     
     function stop(){
         clearInterval(timer);
@@ -69,9 +68,11 @@ const Wheel = () => {
 
     return(
         <>
-            <Container>
-                <img className="gear" src={roulette} alt="gear" style={{ transform: `rotate(${rotation}deg`}}/>
-                <button onClick={Rotate} >Rotate</button>
+            <Container className='d-flex justify-content-center flex-column mainbox'>
+                <Row >              
+                    <img className="gear" src={roulette} alt="gear" width="500px" style={{ transform: `rotate(${rotation}deg`}}/>
+                </Row>
+                <Button onClick={Rotate} >Rotate</Button>
             </Container>
         </>
     )   

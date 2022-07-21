@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 import { QuizCard, Timer } from "../../components/index";
 import Card from "react-bootstrap/Card";
 import Col from 'react-bootstrap/Col';
@@ -16,19 +17,20 @@ function Quiz() {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const [key, setKey] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData(level) {
       try {
         const result = await axios.get(
-          "https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple"
+          `https://opentdb.com/api.php?amount=5&category=18&difficulty=${level}&type=multiple`
         );
         setQuestions(result.data.results);
       } catch (err) {
         console.error(err);
       }
     }
-    fetchData();
+    fetchData(location.state.level);
   }, []);
 
   return (
