@@ -14,7 +14,6 @@ export default function QuizCard({
   setKey,
 }) {
   let options = [];
-  //console.log("from card: ", questions[0]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [answers, setAnswers] = useState([]);

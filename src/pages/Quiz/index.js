@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { QuizCard, Timer, Loading } from "../../components/index";
+import { useLocation } from 'react-router-dom';
+import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import axios from "axios";
 import "./Quiz.css";
+import { QuizCard, Timer, Loading } from "../../components/index";
 import Confetti from "react-confetti";
 
 function Quiz() {
@@ -16,21 +17,22 @@ function Quiz() {
   const [end, setEnd] = useState(true);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [key, setKey] = useState(0);
+  const [key, setKey] = useState(0);  
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData(level) {
       try {
         const result = await axios.get(
-          "https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple"
+          `https://opentdb.com/api.php?amount=5&category=18&difficulty=${level}&type=multiple`
         );
         setQuestions(result.data.results);
       } catch (err) {
         console.error(err);
       }
     }
-    fetchData();
+    fetchData(location.state.level);
   }, []);
 
   function RenderConfetti() {
