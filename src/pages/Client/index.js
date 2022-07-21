@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Input from '../../components/Input';
-import Wheel from '../../components/Wheel';
 import { useNavigate } from 'react-router-dom';
-import io from 'socket.io-client'
+import io from 'socket.io-client';
+import Button from 'react-bootstrap/Button';
+import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Row from "react-bootstrap/Row";
+
 
 const socket = io.connect("http://localhost:5001");
 
@@ -74,7 +78,6 @@ export default function Client() {
       setMessageReceived(data.message);
     })
     
-
   }, [socket]);
 
 
@@ -93,40 +96,58 @@ export default function Client() {
 
   return (
     <>
-      { button ? <div>
-          <input placeholder="JOIN ROOM" onChange={(event) => {
-            setRoom(event.target.value);
-          }}/>
-          <button onClick={joinRoom}> Join Room </button>
-        </div> : <div><h3> JOINED ROOM: {room}</h3></div>}
-
-        <div>
-          <h3>Users </h3> {users}
-          <h3>ALLPLAYERS </h3> {players.length}
-          <br></br>
-          <input placeholder="USERNAME" onChange={(event) => {
-            setUsername(event.target.value);
-          }}/>
-          <button onClick={changeUsername}> change username</button>
-        </div>
-        <div> <h3> Available Rooms : </h3> {renderAllRooms()} </div>
-
-        <input placeholder="Message..." onChange={(event) => {
-          setMessage(event.target.value);
-        }}/>
-
-        {/* <div> <h3>ALLPLAYERS </h3> {players} </div> */}
-
-        <button onClick={sendMessage}> Send Message </button>
-        <h1> Message:</h1>
-        {messageReceived}
-      <div className='d-flex justify-content-center my-5'>
+      <Container className='d-flex justify-content-center my-5'>
         <h1 className="display-1 mb-5">Join a Game !</h1>
-      </div>
-      {/* <Input />
-      <div className='d-flex justify-content-center my-5'>
-        <h2 className="display-4 mb-5">Join a room</h2>
-      </div> */}
+      </Container>
+
+      <Container>
+        <Row>          
+          <Form className='d-flex justify-content-center'>
+            <Form.Group className="mb-3 w-50 d-flex" controlId="formUsername">
+              <Form.Control type="text" className="p-3 border rounded-start" placeholder="Enter a username" onChange={(event) => { setUsername(event.target.value); }} />
+              <Button className="primary-btn border rounded-end" onClick={changeUsername}>Send Name</Button>
+            </Form.Group>   
+          </Form>            
+        </Row> 
+      </Container>
+
+      <Container>
+        <Row>
+          <Form className='d-flex justify-content-center'>
+            <Form.Group className="mb-3 w-50 d-flex" controlId="formSendMessage">
+              <Form.Control type="text" className="p-3 border rounded-start" placeholder="Type a message" onChange={(event) => { setMessage(event.target.value); }} />
+              <Button className="primary-btn border rounded-end" onClick={sendMessage}>Send Message</Button>
+            </Form.Group>
+          </Form>
+        </Row>    
+      </Container>  
+
+      { button ? 
+        <Container>
+          <Row>
+            <Form className='d-flex justify-content-center'>
+              <Form.Group className="mb-3 w-50 d-flex" controlId="formJoinRoom">
+                <Form.Control type="text" className="p-3 border rounded-start" placeholder="Type a room number" onChange={(event) => { setRoom(event.target.value); }} />
+                <Button className="primary-btn border rounded-end" onClick={joinRoom}>Join Room</Button>
+              </Form.Group>                
+            </Form>  
+          </Row>         
+        </Container> 
+      : <Container>
+          <h3 className='fs-4'> Joined Room: {room}</h3>
+        </Container>}
+
+      <Container className='d-flex flex-column justify-content-center'>
+        <h3 className='fs-4'>Available Rooms: </h3> 
+        {renderAllRooms()} 
+      
+        <h3 className='fs-4'>Users {users}</h3>
+
+        <h3 className='fs-4'>All Players {players.length}</h3>      
+   
+        <h3 className='fs-4'>Message: {messageReceived}</h3>
+      </Container>
     </>
   )
 }
+
