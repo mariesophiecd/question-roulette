@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Confetti from "react-confetti";
 import { useDispatch } from "react-redux";
+import { addScore } from "../../actions";
+import { QuizCard, Timer, Loading, Leaderboard } from "../../components/index";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -8,9 +11,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import "./Quiz.css";
-import { QuizCard, Timer, Loading, Leaderboard } from "../../components/index";
-import Confetti from "react-confetti";
-import { addScore } from "../../actions";
 
 function Quiz() {
   const [questions, setQuestions] = useState([
@@ -79,6 +79,7 @@ function Quiz() {
           <Loading setLoading={setLoading} />
         </Container>
       ) : showScore ? (
+
         showLeaderboard ? (
           <>
             <Button onClick={handleLeaderboard}>Close</Button>
@@ -95,11 +96,11 @@ function Quiz() {
                     <Card.Title className="display-3">
                       Correct Answers
                     </Card.Title>
-                    <Card.Text className="card-text mb-3 display-3">
+                    <Card.Text className="card-text mb-3 display-4">
                       {score}/{questions.length}
                     </Card.Text>
                     <Card.Title className="display-3">Points</Card.Title>
-                    <Card.Text className="card-text mb-3 display-3">
+                    <Card.Text className="card-text mb-3 display-4">
                       {points}
                     </Card.Text>
                   </Row>
@@ -108,6 +109,7 @@ function Quiz() {
             </Container>
           </>
         )
+
       ) : (
         <Container>
           <Row className="d-flex justify-content-evenly vh-90 align-items-center">

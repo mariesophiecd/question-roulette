@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import Button from 'react-bootstrap/Button';
-import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from "react-bootstrap/Row";
@@ -137,16 +137,22 @@ export default function Client() {
           <h3 className='fs-4'> Joined Room: {room}</h3>
         </Container>}
 
-      <Container className='d-flex flex-column justify-content-center'>
-        <h3 className='fs-4'>Available Rooms: </h3> 
-        {renderAllRooms()} 
       
-        <h3 className='fs-4'>Users {users}</h3>
-
-        <h3 className='fs-4'>All Players {players.length}</h3>      
-   
-        <h3 className='fs-4'>Message: {messageReceived}</h3>
-      </Container>
+        <Container className="d-flex justify-content-center align-items-center">
+          <Card className="card-box border w-50 my-5 rounded-4 p-3">
+            <Card.Body>
+              <Row>                
+                <Card.Text className="card-text ms-5 my-3 display-4">
+                  <h3 className='fs-4'>Available Rooms </h3> 
+                    {renderAllRooms()}
+                  <h3 className='fs-4'>Users {users}</h3>
+                  <h3 className='fs-4'>All Players {players.length}</h3>
+                  <h3 className='fs-4'>Message {messageReceived}</h3>
+                </Card.Text>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Container>        
     </>
   )
 }

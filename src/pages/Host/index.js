@@ -88,7 +88,7 @@ export default function Host() {
   //   console.log("Being Redirected");
     
   // }
-
+ 
   return (
     <>
       <h1 className='display-1 text-center mb-4'>Create a game !</h1>
@@ -96,22 +96,21 @@ export default function Host() {
           <Container>
             <Row>
               { button ? 
-              <Col className='d-flex flex-column'>
-                <Form className='d-flex justify-content-end'>
-                  <Form.Group className="mb-3 w-50" controlId="formCreateRoom">
-                    <Form.Control type="text" className="p-3" placeholder="Type a room number" onChange={(event) => { setRoom(event.target.value); }} />
-                    <Button className="primary-btn mt-3" onClick={joinRoom}>Create Room</Button>
-                  </Form.Group>                
-                </Form>  
-                <div className='d-flex justify-content-end'>
-                  <h3 className='fs-4'>Available Rooms: </h3> 
-                  {renderAllRooms()}
-                </div>                
-              </Col>
-              : 
-              <Col>
-                <h3 className='fs-4'>Created Room: {room}</h3>
-              </Col>}
+                <Col className='d-flex flex-column'>
+                  <Form className='d-flex justify-content-end'>
+                    <Form.Group className="mb-3 w-50" controlId="formCreateRoom">
+                      <Form.Control type="text" className="p-3" placeholder="Type a room number" onChange={(event) => { setRoom(event.target.value); }} />
+                      <Button className="primary-btn mt-3" onClick={joinRoom}>Create Room</Button>
+                    </Form.Group>                
+                  </Form>  
+                  <div className='d-flex justify-content-end'>
+                    <h3 className='fs-4'>Available Rooms: </h3> 
+                    {renderAllRooms()}
+                  </div>                
+                </Col>
+              : <Col>
+                  <h3 className='fs-4'>Created Room: {room}</h3>
+                </Col>}
 
               <Col>
                 <Form>

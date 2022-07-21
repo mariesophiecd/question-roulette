@@ -25,7 +25,7 @@ export default function Leaderboard() {
   return (
     <>
       <div className="d-flex justify-content-center pt-5">
-        <h2 className="display-5">Top 5 Players</h2>
+        <h2 className="display-5">Top Players</h2>
       </div>
       <div className="p-5">
         <Bar
