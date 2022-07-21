@@ -86,6 +86,36 @@ export default function Host() {
 
   return (
     <>
+      <div> 
+          <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button>
+        </div>
+        { button ? <div>
+          <input placeholder="CREATE ROOM" onChange={(event) => {
+            setRoom(event.target.value);
+          }}/>
+          <button onClick={joinRoom}> Create Room </button>
+        </div> : <div><h3> CREATED ROOM: {room}</h3></div>}
+        
+        <div> 
+          <h3>Users </h3> {users} 
+          <h3>ALLPLAYERS </h3> {players.length}
+          <br></br>
+          <input placeholder="USERNAME" onChange={(event) => {
+            setUsername(event.target.value);
+          }}/>
+          <button onClick={changeUsername}> change username</button>
+        </div>
+        <br></br>
+        
+        <br></br>
+        <div> <h3> Available Rooms : </h3> {renderAllRooms()} </div>
+
+        <input placeholder="Message..." onChange={(event) => {
+          setMessage(event.target.value);
+        }}/>
+        <button onClick={sendMessage}> Send Message </button>
+        <h1> Message:</h1>
+        {messageReceived}
       <h1 className='display-1 text-center mb-3'>Create a game !</h1>
         <Container className='pt-5'>
           <Input />              
