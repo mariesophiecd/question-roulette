@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
 
 const socket = io.connect("http://localhost:5001");
 
+=======
+import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
+import './Host.css';
+>>>>>>> c9625ecc2a043906bb74d072c24d193f80d5286f
 
 export default function Host() {
 
@@ -84,41 +90,24 @@ export default function Host() {
   }
 
   return (
-      <div>
-        <div> 
-          <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button>
-        </div>
-        { button ? <div>
-          <input placeholder="CREATE ROOM" onChange={(event) => {
-            setRoom(event.target.value);
-          }}/>
-          <button onClick={joinRoom}> Create Room </button>
-        </div> : <div><h3> CREATED ROOM: {room}</h3></div>}
-        
-        <div> 
-          <h3>Users </h3> {users} 
-          <h3>ALLPLAYERS </h3> {players.length}
-          <br></br>
-          <input placeholder="USERNAME" onChange={(event) => {
-            setUsername(event.target.value);
-          }}/>
-          <button onClick={changeUsername}> change username</button>
-        </div>
-        <br></br>
-        
-        <br></br>
-        <div> <h3> Available Rooms : </h3> {renderAllRooms()} </div>
-
-        <input placeholder="Message..." onChange={(event) => {
-          setMessage(event.target.value);
-        }}/>
-        <button onClick={sendMessage}> Send Message </button>
-        <h1> Message:</h1>
-        {messageReceived}
-
-        
+    <>
+      <div className='d-flex justify-content-center my-5'>
+        <h1 className="display-1 mb-5">Start a Game !</h1>
+      </div>
+      <div className="pb-5">
         <Input />
       </div>
+      <div className='d-flex justify-content-center my-5'>
+        <h2 className='display-4'>Choose your level</h2>
+      </div>
+      <div>
+        <Stack className='col-md-5 mx-auto w-50 mb-5'>
+          <Button className="easy-btn p-3 fs-4">Easy</Button>
+          <Button className="medium-btn p-3 fs-4">Medium</Button>
+          <Button className="hard-btn p-3 fs-4">Hard</Button>
+        </Stack>
+      </div>
+    </>
   )
 }
 

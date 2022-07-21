@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.answer-btn{
+    background-color: #455BE2;
+}
+
+.answer-btn:hover{
+    background-color: #F55657;
+    border: 1px solid #F55657;
+}
+
+.card-box{
+    border-radius: 10px;
+    width: 30rem;
+}
+
+.card-text{
+    font-weight: 600;
+}
+
+.card-title{
+    font-family: 'Spicy Rice', display;
+}
+

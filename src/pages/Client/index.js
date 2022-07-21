@@ -92,35 +92,14 @@ export default function Client() {
   })
 
   return (
-      <div>
-        { button ? <div>
-          <input placeholder="JOIN ROOM" onChange={(event) => {
-            setRoom(event.target.value);
-          }}/>
-          <button onClick={joinRoom}> Join Room </button>
-        </div> : <div><h3> JOINED ROOM: {room}</h3></div>}
-
-        <div>
-          <h3>Users </h3> {users}
-          <h3>ALLPLAYERS </h3> {players.length}
-          <br></br>
-          <input placeholder="USERNAME" onChange={(event) => {
-            setUsername(event.target.value);
-          }}/>
-          <button onClick={changeUsername}> change username</button>
-        </div>
-        <div> <h3> Available Rooms : </h3> {renderAllRooms()} </div>
-
-        <input placeholder="Message..." onChange={(event) => {
-          setMessage(event.target.value);
-        }}/>
-
-        {/* <div> <h3>ALLPLAYERS </h3> {players} </div> */}
-
-        <button onClick={sendMessage}> Send Message </button>
-        <h1> Message:</h1>
-        {messageReceived}
-        <Input />
+    <>
+      <div className='d-flex justify-content-center my-5'>
+        <h1 className="display-1 mb-5">Join a Game !</h1>
       </div>
+      <Input />
+      <div className='d-flex justify-content-center my-5'>
+        <h2 className="display-4 mb-5">Join a room</h2>
+      </div>
+    </>
   )
 }
