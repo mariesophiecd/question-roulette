@@ -44,7 +44,7 @@ export default function InputMultiplayer() {
             <Container className="w-50">
                 <Form onSubmit={handleSubmit} className="d-flex justify-content-center flex-column">
                     <Row className='mb-5 text-center'>
-                            <h2>Spin the Wheel to get your theme!</h2>   
+                            <h2 className="mb-5">Spin the Wheel to get your theme!</h2>   
                             <Wheel setTheme={setTheme} />
                     </Row>
                     <Form.Group className="mb-3" controlId="formInputText">
