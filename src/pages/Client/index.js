@@ -68,24 +68,6 @@ export default function Client() {
     
   }, [socket]);
 
-
-  useEffect(() => {
-
-    socket.on('rooms', data => {
-      setRoomsAvailability(data);
-    })
-
-    socket.on("players", (data) =>{
-      setPlayers(data);
-    })
-
-    socket.on('users', data => {
-      setUsers(data);
-    });
-     
-  }, []);
-
-
   useEffect(() => {
       renderAllRooms();
   }, [roomsAvailable]);
