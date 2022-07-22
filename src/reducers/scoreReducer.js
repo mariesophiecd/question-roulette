@@ -1,9 +1,9 @@
 const initState = [
-  { name: "playerA", score: 500 },
-  { name: "playerB", score: 300 },
-  { name: "playerC", score: 400 },
-  { name: "playerD", score: 100 },
-  { name: "playerE", score: 700 },
+  { name: "Smith", score: 500 },
+  { name: "Quizzard", score: 300 },
+  { name: "E=MC ", score: 400 },
+  { name: "Bigwin", score: 100 },
+  { name: "Google", score: 900 },
 ];
 
 const scoreReducer = (state = initState, action) => {
