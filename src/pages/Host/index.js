@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputMultiplayer } from '../../components';
+import { InputMultiplayer } from '../../components/index';
 import io from 'socket.io-client'
 import Button from 'react-bootstrap/Button';
 import Col from "react-bootstrap/Col";
