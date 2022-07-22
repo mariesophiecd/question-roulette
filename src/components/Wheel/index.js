@@ -74,11 +74,11 @@ const Wheel = ({setTheme}) => {
 
     return(
         <>
-            <Container className='d-flex justify-content-center flex-column mainbox m-5'>
+            <Container className='d-flex justify-content-center flex-column mainbox my-5'>
               <Row className="d-flex justify-content-center">
-                  <Button className="primary-btn mb-5 w-25" onClick={Rotate}>Spin</Button>
+                  <Button className="primary-btn mt-5 w-25" onClick={Rotate}>Spin</Button>
               </Row>
-              <Row >              
+              <Row className="mb-5">              
                   <img className="gear" src={roulette} alt="gear" style={{ transform: `rotate(${rotation}deg`}}/>
               </Row>
             </Container>

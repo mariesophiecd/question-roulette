@@ -34,8 +34,8 @@ export default function Input() {
             <Container className="w-50">
                 <Form onSubmit={handleSubmit} className="d-flex justify-content-center flex-column">
                     <Row className='mt-3 text-center'>
-                            <h2 className='mb-3'>Spin the Wheel to get your theme!</h2>   
-                            <Wheel setTheme={setTheme} />
+                        <h2 className='mb-5'>Spin the Wheel to get your theme!</h2>   
+                        <Wheel setTheme={setTheme} />
                     </Row>
                     <Form.Group className="mb-3" controlId="formInputText">
                         <Form.Control type="text" className="p-3" placeholder="Enter username" onChange={handleInput} value={username}/>
