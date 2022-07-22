@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import io from 'socket.io-client'
 
-const socket = io.connect("http://localhost:5001");
+const socket = io.connect("https://question-roulette.herokuapp.com/");
 
 
 export default function InputMultiplayer() {
@@ -28,7 +28,7 @@ export default function InputMultiplayer() {
     function handleSubmit(e){
         e.preventDefault()
         setSubmitOptions(username, level, theme)
-        socket.emit("quiz_page", ({state: {name: username, level: level, theme: theme} }) );
+        socket.emit("quiz_page", ({state: {name: username, level: level, theme: theme}}));
         socket.on('quiz_page_direction', (data) => {
         navigate("/quiz", data);
         })
