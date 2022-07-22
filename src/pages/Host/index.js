@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputMultiplayer } from '../../components';
+import { InputMultiplayer } from '../../components/index';
 import io from 'socket.io-client'
 import Button from 'react-bootstrap/Button';
 import Col from "react-bootstrap/Col";
@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from "react-bootstrap/Row";
 import './Host.css';
-import { InputMultiplayer } from '../../components';
+
 const socket = io.connect("https://question-roulette.herokuapp.com/");
 export default function Host() {
 
