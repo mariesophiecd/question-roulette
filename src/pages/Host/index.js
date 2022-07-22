@@ -7,7 +7,7 @@ import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import './Host.css';
 import { InputMultiplayer } from '../../components';
-const socket = io.connect("http://localhost:5001");
+const socket = io.connect("https://question-roulette.herokuapp.com/");
 export default function Host() {
 
   const [message, setMessage] = useState("");
@@ -18,11 +18,7 @@ export default function Host() {
   const [roomsAvailable, setRoomsAvailability] = useState([]);
   const [players, setPlayers] = useState([]);
   const [username, setUsername] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [searchSubject, setSubject] = useState('');
   
-  const navigate = useNavigate();
-
   const joinRoom = () => {
 
     try{
@@ -33,14 +29,6 @@ export default function Host() {
     }catch(err){
       setMessageReceived(err);
     }   
-  }
-
-  const Difficulty = () => {
-      socket.emit("set_difficulty", (difficulty))
-  }
-
-  const Subject = () => {
-      socket.emit("set_subject", (searchSubject))
   }
 
   const changeUsername = () => {

@@ -4,8 +4,7 @@ import Wheel from '../../components/Wheel';
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
 
-const socket = io.connect("http://localhost:5001");
-
+const socket = io.connect("https://question-roulette.herokuapp.com/");
 
 export default function Client() {
 
@@ -17,8 +16,6 @@ export default function Client() {
   const [roomsAvailable, setRoomsAvailability] = useState([]);
   const [players, setPlayers] = useState([]);
   const [username, setUsername] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [searchSubject, setSubject] = useState('');
 
   const navigate = useNavigate();
 
@@ -36,18 +33,6 @@ export default function Client() {
       setMessageReceived(err);
     }   
   }
-
-  const Difficulty = () => {
-    socket.emit("get_difficulty", (data) => {
-        setDifficulty(data);
-    })
-}
-
-  const Subject = () => {
-    socket.emit("get_subject", (data) => {
-        setSubject(data);
-    })
-}
 
   const changeUsername = () => {
     socket.emit("set_username", username);
@@ -88,6 +73,7 @@ export default function Client() {
 
   socket.on('quiz_page_direction', (data) => {
     console.log("Being Redirected");
+    data.state.name = username;
     navigate("/quiz", data);
   })
 
