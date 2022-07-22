@@ -73,18 +73,20 @@ export default function Client() {
   }, [roomsAvailable]);
 
   useEffect(() => {
-    socket.on('users', data => {
-      setUsers(data);
-    });
-
-    
-    socket.on("players", (data) =>{
-    setPlayers(data);
+    socket.emit("get-updates", () =>{
+      socket.on('users', data => {
+        setUsers(data);
+      });
+  
+      socket.on("players", (data) =>{
+      setPlayers(data);
+      })
+  
+      socket.on('rooms', data => {
+        setRoomsAvailability(data);
+      })
     })
-
-    socket.on('rooms', data => {
-      setRoomsAvailability(data);
-    })
+  
     renderAllRooms();
   });
 
