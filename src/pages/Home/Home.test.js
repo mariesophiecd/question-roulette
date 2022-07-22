@@ -15,22 +15,37 @@ describe('Home', () => {
     })   
 
     it('displays a h1', () => {
-        const heading = screen.getByText('Welcome!')
-        expect(heading.textContent).toBe('Welcome!')
+        const heading = screen.getByText('Will you beat them?')
+        expect(heading.textContent).toBe('Will you beat them?')
     })
 
-    it('displays the "Start a game" button', () => {
-        const button = screen.getByRole('button', {name: /Start a game/i });
+    it('displays a h2', () => {
+        const heading = screen.getByText('Solo mode')
+        expect(heading.textContent).toBe('Solo mode')
+    })
+
+    it('displays the "Create a game" button', () => {
+        const button = screen.getByRole('button', {name: /Create a game/i });
+        expect(button).toBeInTheDocument();
+    })
+
+    it('displays the "Join a game" button', () => {
+        const button = screen.getByRole('button', {name: /Join a game/i });
+        expect(button).toBeInTheDocument();
+    })
+
+    it('displays the "Start to play" button', () => {
+        const button = screen.getByRole('button', {name: /Start to play/i });
         expect(button).toBeInTheDocument();
     })
 
     it('displays the passed text', () => {
-        const button =screen.getByText('Start a Game !');
-        expect(button.textContent).toBe('Start a Game !');
+        const button =screen.getByText('Create a game');
+        expect(button.textContent).toBe('Create a game');
     })
 
     it('triggers the passed function on click', async () => {
-        const button = screen.getByRole('button', {name: /Start a game/i });
+        const button = screen.getByRole('button', {name: /Create a game/i });
         //click needs to be done first before calling the function
         await userEvent.click(button);
 

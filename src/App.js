@@ -1,15 +1,14 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Home, Host, Client, Quiz, SinglePlayer } from "./pages";
 import logo from "./images/logo.png";
 // import logo3 from "./images/logo3.png";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 
 function App() {
-  const navigate = useNavigate();
 
-  const sendMessage = () => {};
+  const navigate = useNavigate();
 
   return (
     <Container className="App">
@@ -33,11 +32,7 @@ function App() {
           <Route path="/host" element={<Host />} />
           <Route path="/client" element={<Client />} />
           <Route path="/singleplayer" element={<SinglePlayer />} />
-          <Route path="/quiz">
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/quiz/question" element="" />
-            <Route path="/quiz/final_scores" element="" />
-          </Route>
+          <Route path="/quiz" element={<Quiz />} />         
         </Routes>
       </header>
     </Container>
@@ -45,13 +40,3 @@ function App() {
 }
 
 export default App;
-
-/* <Route path='/theme' element={<Quiz />} />
-            <Route path='/question' element='' />
-            <Route path='/final_scores' element=''/> */
-
-/* <Route path='/' element={<Home />} />
-          <Route path='/host' element={<Host/>} />
-          <Route path='/client' element={<Client />} />
-          <Route path='/quiz' element={<Quiz />}> */
-// </Routes>/</Route>
