@@ -54,11 +54,12 @@ export default function Client() {
     setPlayers(data);
   })
 
+  socket.on('rooms', data => {
+    setRoomsAvailability(data);
+  })
+
   useEffect(() => {
 
-    socket.on('rooms', data => {
-      setRoomsAvailability(data);
-    })
     socket.on("receive_message", (data) => {
       setMessageReceived(data.message);
     })
