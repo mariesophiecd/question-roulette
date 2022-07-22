@@ -149,8 +149,7 @@ export default function Client() {
             <Card.Body>
               <Row>                
                 <Card.Text className="card-text ms-5 my-3 display-4">
-                  <h3 className='fs-4'>Available Rooms </h3> 
-                    {renderAllRooms()}
+                  <h3 className='fs-4'>Available Rooms {renderAllRooms()}</h3>                     
                   <h3 className='fs-4'>Users {users}</h3>
                   <h3 className='fs-4'>All Players {players.length}</h3>
                   <h3 className='fs-4'>Message {messageReceived}</h3>

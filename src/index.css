@@ -39,3 +39,26 @@ h1, h2 {
 .pointer{
   cursor: pointer;
 }
+
+.primary-btn{
+  background-color: #455BE2;
+  border: 2px solid #455BE2;
+  min-width: 10rem;
+}
+
+.primary-btn:hover{
+  background-color: #7282e9;
+  border: 2px solid #7282e9;
+}
+
+.outline-primary-btn{
+  border: 2px solid #455BE2;
+  color:  #455BE2;
+  font-weight: 500;
+}
+
+.outline-primary-btn:hover{
+  border: 2px solid #7282e9;
+  background: transparent;
+  color: #7282e9;
+}

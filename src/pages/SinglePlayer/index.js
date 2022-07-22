@@ -1,5 +1,5 @@
 import React from 'react'; 
-import{ Input } from "../../components/index";
+import { Input } from "../../components/index";
 import Container from 'react-bootstrap/Container';
 
 export default function SinglePlayer() {

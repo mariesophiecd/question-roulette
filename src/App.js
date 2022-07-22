@@ -1,10 +1,10 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Home, Host, Client, Quiz, SinglePlayer } from "./pages";
 import logo from "./images/logo.png";
-// import logo3 from "./images/logo3.png";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
+import "./index.css";
 
 function App() {
 
@@ -20,11 +20,6 @@ function App() {
             className="w-75"
             onClick={() => navigate("/")}
           />
-          {/* <img 
-            src={logo3}
-            alt='animation-roulette'
-            className="animLogo"
-          /> */}
         </div>
 
         <Routes>
