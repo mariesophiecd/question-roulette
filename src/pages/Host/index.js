@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from "react-bootstrap/Row";
 import './Host.css';
-import { InputMultiplayer } from '../../components';
+
 const socket = io.connect("https://question-roulette.herokuapp.com/");
 export default function Host() {
 
