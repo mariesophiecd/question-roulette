@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from "react-bootstrap/Row";
-import './Host.css';
+import '../../index.css';
 
 
 const socket = io.connect("http://localhost:5001");
@@ -100,10 +100,10 @@ export default function Host() {
                   <Form className='d-flex justify-content-end'>
                     <Form.Group className="mb-3 w-50" controlId="formCreateRoom">
                       <Form.Control type="text" className="p-3" placeholder="Type a room number" onChange={(event) => { setRoom(event.target.value); }} />
-                      <Button className="primary-btn mt-3" onClick={joinRoom}>Create Room</Button>
+                      <Button className="primary-btn p-2 mt-3" onClick={joinRoom}>Create Room</Button>
                     </Form.Group>                
                   </Form>  
-                  <div className='d-flex justify-content-end'>
+                  <div className='d-flex ms-5 ps-5 justify-content-center'>
                     <h3 className='fs-4'>Available Rooms: </h3> 
                     {renderAllRooms()}
                   </div>                
@@ -132,37 +132,4 @@ export default function Host() {
   )
 }
 
-<div> 
-{/* <button id="redirect" type="submit" onClick={RedirectToQuiz}> Start Game </button> */}
-</div>
 
-{/* 
-              <input placeholder="CREATE ROOM" onChange={(event) => {
-                setRoom(event.target.value);
-              }}/>
-              <Button className="primary-btn" onClick={joinRoom}>Create Room</Button> */}
-
-    {/* <div> 
-          <h3>Users </h3> {users} 
-          <h3>ALLPLAYERS </h3> {players.length}
-          <br></br>
-          <input placeholder="USERNAME" onChange={(event) => {
-            setUsername(event.target.value);
-          }}/>
-          <button onClick={changeUsername}> change username</button>
-        </div>
-        <br></br> */}
-
-        
-        {/* <input placeholder="Message..." onChange={(event) => {
-          setMessage(event.target.value);
-        }}/>
-        <button onClick={sendMessage}> Send Message </button>
-        <h1> Message:</h1>
-        {messageReceived} */}
-
-        {/* 
-        <Container> 
-          <h3 className='fs-4'>Available Rooms: </h3> 
-          {renderAllRooms()} 
-        </Container> */}

@@ -11,8 +11,8 @@
     height: 50px;
     background: url('../../images/arrow.png') no-repeat;
     background-size: 50px;
-    right: 290px;
-    top: 10%;
+    right: 225px;
+    top: 20%;
     transform: translateY(-50%);
 }
 

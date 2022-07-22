@@ -10,6 +10,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
+import "../../index.css";
 import "./Quiz.css";
 
 function Quiz() {
@@ -82,13 +83,13 @@ function Quiz() {
 
         showLeaderboard ? (
           <>
-            <Button onClick={handleLeaderboard}>Close</Button>
+            <Button className="primary-btn p-3" onClick={handleLeaderboard}>Close</Button>
             <Leaderboard />
           </>
         ) : (
           <>
             <RenderConfetti />
-            <Button onClick={handleLeaderboard}>Leaderboard</Button>
+            <Button className="primary-btn p-3" onClick={handleLeaderboard}>Leaderboard</Button>
             <Container className="d-flex justify-content-center vh-98 align-items-center">
               <Card className="card-box border rounded-4 p-5">
                 <Card.Body>

@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import '../../style.css';
+import '../../index.css'
 
 export default function Home() {
 
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>  
-      <Container className="m-5 pb-5">
+      <Container className="fluid m-5 pb-5">
         <Row className="w-100 mb-5">
           <Col className="d-flex flex-column">
             <h2 className="text-center mb-3">Solo mode</h2>
