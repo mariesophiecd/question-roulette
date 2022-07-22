@@ -40,7 +40,7 @@ export default function Home() {
       </Container>
 
       <Container>
-        <h1 className="d-flex justify-content-center display-4 my-5">Will you beat them?</h1>
+        <h1 className="d-flex justify-content-center display-4 my-3">Will you beat them?</h1>
       </Container>
      
       <Container className="w-50 my-5 pb-5">

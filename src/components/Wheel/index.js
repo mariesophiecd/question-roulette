@@ -43,17 +43,17 @@ const Wheel = ({setTheme}) => {
 
     function chooseOption(){
         if(actualRotation >= 0 && actualRotation < 61 ){
-            setTheme(10);
+          setTheme(10);
         }else if(actualRotation >= 61 && actualRotation < 121){
-             setTheme(18);
+          setTheme(18);
         }else if(actualRotation >= 121 && actualRotation < 181){
-             setTheme(21);
+          setTheme(21);
         }else if(actualRotation >= 181 && actualRotation < 241){
-             setTheme(11);
+          setTheme(11);
         }else if(actualRotation >= 241 && actualRotation < 301){
-             setTheme(15);
+          setTheme(15);
         }else{
-             setTheme(12);
+          setTheme(12);
         }
     }
   
@@ -74,9 +74,9 @@ const Wheel = ({setTheme}) => {
 
     return(
         <>
-            <Container className='d-flex justify-content-center flex-column mainbox'>
+            <Container className='d-flex justify-content-center flex-column mainbox m-5'>
               <Row className="d-flex justify-content-center">
-                  <Button className="primary-btn w-25" onClick={Rotate}>Spin</Button>
+                  <Button className="primary-btn mb-5 w-25" onClick={Rotate}>Spin</Button>
               </Row>
               <Row >              
                   <img className="gear" src={roulette} alt="gear" style={{ transform: `rotate(${rotation}deg`}}/>
